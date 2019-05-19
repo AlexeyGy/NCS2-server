@@ -1,11 +1,5 @@
-import argparse
 import numpy as np
-import time
 import cv2
-import traceback
- 
-# initialize the list of class labels our network was trained to
-# detect, then generate a set of bounding box colors for each class
  
 # frame dimensions should be square
 PREPROCESS_DIMS = (300, 300)
@@ -60,21 +54,4 @@ def postprocess(img, out, threshold):
     # test_write_image(img, conf, box, cls)
     
     return (detections, result)
-
-
-# def test_write_image(origimg, conf, box, cls):
-
-#     for i in range(len(box)):
-# 	       # x,y
-# 	       p1 = (box[i][0], box[i][1])
-# 	       # x+wdith, y+width
-# 	       p2 = (box[i][2], box[i][3])
-# 	       cv2.rectangle(origimg, p1, p2, (0,255,0))
-# 	       p3 = (max(p1[0], 15), max(p1[1], 15))
-# 	       title = "%s:%.2f" % (CLASSES[int(cls[i])], conf[i])
-# 	       cv2.putText(origimg, title, p3, cv2.FONT_ITALIC, 0.6, (0, 255, 0), 1)
-	       
-#     cv2.imwrite("SSD.jpg", origimg)
- 
-
 
