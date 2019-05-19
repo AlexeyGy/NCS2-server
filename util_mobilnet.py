@@ -4,20 +4,6 @@ import cv2
 # frame dimensions should be square
 PREPROCESS_DIMS = (300, 300)
 
-def read_labels(label_map_path = 'models/labelmap.prototxt'):
-    CLASSES = []
-    with open(label_map_path) as f:
-        lines = f.readlines()
-    for x in range(3, len(lines),5):
-        CLASSES.append(((lines[x].split(": "))[1]).replace("\"","").replace("\n",""))
-
- 
-    COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
-    
-    return COLORS, CLASSES
-
-COLORS, CLASSES = read_labels()
-
 def preprocess(input_image):
 	# preprocess the image
 	preprocessed = cv2.resize(input_image, PREPROCESS_DIMS)
