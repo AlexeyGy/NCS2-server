@@ -4,7 +4,7 @@ import cv2
 # frame dimensions should be square
 PREPROCESS_DIMS = (300, 300)
 
-def read_labels(label_map_path = 'labelmap.prototxt'):
+def read_labels(label_map_path = 'models/labelmap.prototxt'):
     CLASSES = []
     with open(label_map_path) as f:
         lines = f.readlines()
